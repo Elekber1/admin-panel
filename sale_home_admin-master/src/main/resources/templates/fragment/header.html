@@ -1,0 +1,14 @@
+<!--header start-->
+<header class="header black-bg" xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+    <!--logo start-->
+    <a th:href="@{/}" class="logo"><b>POST<span>HOME</span></b></a>
+    <!--logo end-->
+    <div class="nav notify-row" id="top_menu">
+    </div>
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" th:href="@{/logout}">>Logout</a></li>
+        </ul>
+    </div>
+</header>
+<!--header end-->

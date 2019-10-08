@@ -1,0 +1,130 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Forum - Admin Panel</title>
+
+    <th:block th:replace="fragment/imports :: imports"></th:block>
+
+    <script>
+
+        var updateUrl;
+        $(document).ready(function () {
+            updateUrl = window.location.href + "post/getAllActivePosts";
+            dataTabelConfig(updateUrl);
+            $('#IdActivePosts').click(function () {
+//            $.ajax({
+//                url: "/post/getAllActivePosts",
+//                type: "get",
+//                beforeSend: function () {
+//                    $("#example").fadeOut(500);
+//                },
+//                success: function (data) {
+//
+//                }
+//            });
+
+                $('#example').dataTable().fnDestroy();
+                updateUrl = "/post/getAllActivePosts";
+                dataTabelConfig(updateUrl);
+            });
+
+            $("#IdPendingPosts").click(function () {
+                $('#example').dataTable().fnDestroy();
+                updateUrl = "/post/getAllPendingPosts";
+                dataTabelConfig(updateUrl);
+            });
+        });
+
+
+        function dataTabelConfig(url) {
+            $('#example').DataTable({
+                reponsive: true,
+                "ajax": {
+                    "url": url,
+                    "dataSrc": ""
+                },
+                "columns": [
+                    {"data": "idPost"},
+                    {"data": "title"},
+                    {"data": "postType"},
+                    {"data": "price"},
+                    {"data": "area"},
+                    {"data": "city.cityName"},
+                    {"data": "user.firstName"},
+                    {"data": "user.lastName"},
+                    {"data": "user.email"},
+                    {
+                        "data": "idPost",
+                        "render": function (data, type, full, meta) {
+                            return '<button id="' + full.idPost + '" onclick="get_post_detail(this.id)" class="btn btn-cyan" style=\'text-align: center\'>' +
+                                'View details</button>';
+                        }
+                    }
+                ]
+            });
+        }
+    </script>
+
+
+</head>
+
+<body>
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <th:block th:replace="fragment/header :: header"/>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <th:block th:replace="fragment/sidebar :: sidebar"/>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Active Users</h3>
+            <div class="row mt">
+                <div class="col-lg-12">
+
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Block</th>
+                        </tr>
+                        </thead>
+                        <tbody id="idTbody">
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </section>
+        <!-- /wrapper -->
+    </section>
+    <!--main content end-->
+    <!--footer start-->
+    <th:block th:replace="fragment/footer :: footer"/>
+
+    <!--footer end-->
+</section>
+<!-- js placed at the end of the document so the pages load faster -->
+</body>
+
+</html>

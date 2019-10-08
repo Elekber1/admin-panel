@@ -1,0 +1,77 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Forum - Admin Panel</title>
+
+    <th:block th:replace="fragment/imports :: imports"></th:block>
+
+
+</head>
+
+<body>
+
+
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <th:block th:replace="fragment/header :: header"/>
+    <!--header end-->
+
+
+    <div id="dialog-confirm"></div>
+    <!--sidebar start-->
+    <th:block th:replace="fragment/sidebar :: sidebar"/>
+    <!--sidebar end-->
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h3 id="IdPage"><i class="fa fa-angle-right"></i> Home </h3>
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Post Type</th>
+                                <th>Price</th>
+                                <th>Area</th>
+                                <th>City Name</th>
+                                <th>User Firstname</th>
+                                <th>User Lastname</th>
+                                <th>User Email</th>
+                                <th>View details</th>
+                            </tr>
+                            </thead>
+                            <tbody id="idTbody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /wrapper -->
+    </section>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script th:src="@{/js/details.js}"></script>
+    <!--main content end-->
+    <!--footer start-->
+    <th:block th:replace="fragment/footer :: footer"/>
+    <!--footer end-->
+</section>
+<!-- js placed at the end of the document so the pages load faster -->
+</body>
+
+</html>

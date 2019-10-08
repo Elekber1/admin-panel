@@ -1,0 +1,33 @@
+<!--sidebar start-->
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="sidebar">
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Topics</span>
+                    </a>
+                    <ul class="sub">
+                        <li style="cursor: pointer" id="IdActivePosts">Active Posts</li>
+                        <li style="cursor: pointer" id="IdPendingPosts">Pending Posts</li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Users</span>
+                    </a>
+                    <ul class="sub">
+                        <li style="cursor: pointer" id="IdActiveUsers">Active Users</li>
+                        <li style="cursor: pointer" id="IdInactiveUsers">Inactive Users</li>
+                        <li style="cursor: pointer" id="IdBlockedUser">Blocked Users</li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+</th:block>
+<!--sidebar end-->
